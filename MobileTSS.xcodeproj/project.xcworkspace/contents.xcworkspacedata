@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:TSS.xcodeproj">
+      location = "self:MobileTSS.xcodeproj">
    </FileRef>
 </Workspace>

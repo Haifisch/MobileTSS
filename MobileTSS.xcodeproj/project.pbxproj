@@ -14,13 +14,21 @@
 		B9BE42131920188F00A2FD15 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BE42121920188F00A2FD15 /* main.m */; };
 		B9BE42171920188F00A2FD15 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BE42161920188F00A2FD15 /* AppDelegate.m */; };
 		B9BE421A1920188F00A2FD15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9BE42181920188F00A2FD15 /* Main.storyboard */; };
-		B9BE421D1920188F00A2FD15 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BE421C1920188F00A2FD15 /* ViewController.m */; };
 		B9BE421F1920188F00A2FD15 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9BE421E1920188F00A2FD15 /* Images.xcassets */; };
 		B9BE42261920188F00A2FD15 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BE42251920188F00A2FD15 /* XCTest.framework */; };
 		B9BE42271920188F00A2FD15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BE42061920188F00A2FD15 /* Foundation.framework */; };
 		B9BE42281920188F00A2FD15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BE420A1920188F00A2FD15 /* UIKit.framework */; };
 		B9BE42301920188F00A2FD15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B9BE422E1920188F00A2FD15 /* InfoPlist.strings */; };
 		B9BE42321920188F00A2FD15 /* TSSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BE42311920188F00A2FD15 /* TSSTests.m */; };
+		B9BE424019201FF400A2FD15 /* AllFirmwaresTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BE423F19201FF400A2FD15 /* AllFirmwaresTableViewController.m */; };
+		B9BE42441920200700A2FD15 /* MyDeviceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BE42431920200700A2FD15 /* MyDeviceTableViewController.m */; };
+		B9BE42471920201500A2FD15 /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BE42461920201500A2FD15 /* SearchTableViewController.m */; };
+		B9BE424A192021F600A2FD15 /* NoResultsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9BE4249192021F600A2FD15 /* NoResultsView.xib */; };
+		B9BE424C192026F500A2FD15 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BE424B192026F500A2FD15 /* IOKit.framework */; };
+		B9BE424F192027C200A2FD15 /* libMobileGestalt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BE424E192027C200A2FD15 /* libMobileGestalt.dylib */; };
+		B9BE42511920281100A2FD15 /* liblockdown.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BE42501920281100A2FD15 /* liblockdown.dylib */; };
+		B9BE425319202B3500A2FD15 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BE425219202B3500A2FD15 /* CoreFoundation.framework */; };
+		B9BE425819202DC700A2FD15 /* UIDevice-IOKitExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BE425719202DC700A2FD15 /* UIDevice-IOKitExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,25 +42,37 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B9BE42031920188F00A2FD15 /* TSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9BE42031920188F00A2FD15 /* MobileTSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileTSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9BE42061920188F00A2FD15 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B9BE42081920188F00A2FD15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B9BE420A1920188F00A2FD15 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		B9BE420E1920188F00A2FD15 /* TSS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TSS-Info.plist"; sourceTree = "<group>"; };
+		B9BE420E1920188F00A2FD15 /* MobileTSS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MobileTSS-Info.plist"; sourceTree = "<group>"; };
 		B9BE42101920188F00A2FD15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B9BE42121920188F00A2FD15 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B9BE42141920188F00A2FD15 /* TSS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TSS-Prefix.pch"; sourceTree = "<group>"; };
 		B9BE42151920188F00A2FD15 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B9BE42161920188F00A2FD15 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B9BE42191920188F00A2FD15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B9BE421B1920188F00A2FD15 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B9BE421C1920188F00A2FD15 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B9BE421E1920188F00A2FD15 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B9BE42241920188F00A2FD15 /* TSSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TSSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9BE42241920188F00A2FD15 /* MobileTSSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileTSSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9BE42251920188F00A2FD15 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		B9BE422D1920188F00A2FD15 /* TSSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TSSTests-Info.plist"; sourceTree = "<group>"; };
+		B9BE422D1920188F00A2FD15 /* MobileTSSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MobileTSSTests-Info.plist"; sourceTree = "<group>"; };
 		B9BE422F1920188F00A2FD15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B9BE42311920188F00A2FD15 /* TSSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSSTests.m; sourceTree = "<group>"; };
+		B9BE423E19201FF400A2FD15 /* AllFirmwaresTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllFirmwaresTableViewController.h; sourceTree = "<group>"; };
+		B9BE423F19201FF400A2FD15 /* AllFirmwaresTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllFirmwaresTableViewController.m; sourceTree = "<group>"; };
+		B9BE42421920200700A2FD15 /* MyDeviceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDeviceTableViewController.h; sourceTree = "<group>"; };
+		B9BE42431920200700A2FD15 /* MyDeviceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDeviceTableViewController.m; sourceTree = "<group>"; };
+		B9BE42451920201500A2FD15 /* SearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
+		B9BE42461920201500A2FD15 /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
+		B9BE4249192021F600A2FD15 /* NoResultsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoResultsView.xib; sourceTree = "<group>"; };
+		B9BE424B192026F500A2FD15 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		B9BE424D192027AE00A2FD15 /* MobileGestalt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileGestalt.h; sourceTree = "<group>"; };
+		B9BE424E192027C200A2FD15 /* libMobileGestalt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMobileGestalt.dylib; path = usr/lib/libMobileGestalt.dylib; sourceTree = SDKROOT; };
+		B9BE42501920281100A2FD15 /* liblockdown.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liblockdown.dylib; path = usr/lib/liblockdown.dylib; sourceTree = SDKROOT; };
+		B9BE425219202B3500A2FD15 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		B9BE425619202DC700A2FD15 /* UIDevice-IOKitExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-IOKitExtensions.h"; sourceTree = "<group>"; };
+		B9BE425719202DC700A2FD15 /* UIDevice-IOKitExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-IOKitExtensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +80,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9BE425319202B3500A2FD15 /* CoreFoundation.framework in Frameworks */,
+				B9BE42511920281100A2FD15 /* liblockdown.dylib in Frameworks */,
+				B9BE424F192027C200A2FD15 /* libMobileGestalt.dylib in Frameworks */,
+				B9BE424C192026F500A2FD15 /* IOKit.framework in Frameworks */,
 				B9BE42091920188F00A2FD15 /* CoreGraphics.framework in Frameworks */,
 				B9BE420B1920188F00A2FD15 /* UIKit.framework in Frameworks */,
 				B9BE42071920188F00A2FD15 /* Foundation.framework in Frameworks */,
@@ -92,8 +116,8 @@
 		B9BE42041920188F00A2FD15 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B9BE42031920188F00A2FD15 /* TSS.app */,
-				B9BE42241920188F00A2FD15 /* TSSTests.xctest */,
+				B9BE42031920188F00A2FD15 /* MobileTSS.app */,
+				B9BE42241920188F00A2FD15 /* MobileTSSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,6 +125,10 @@
 		B9BE42051920188F00A2FD15 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B9BE425219202B3500A2FD15 /* CoreFoundation.framework */,
+				B9BE42501920281100A2FD15 /* liblockdown.dylib */,
+				B9BE424E192027C200A2FD15 /* libMobileGestalt.dylib */,
+				B9BE424B192026F500A2FD15 /* IOKit.framework */,
 				B9BE42061920188F00A2FD15 /* Foundation.framework */,
 				B9BE42081920188F00A2FD15 /* CoreGraphics.framework */,
 				B9BE420A1920188F00A2FD15 /* UIKit.framework */,
@@ -115,8 +143,11 @@
 				B9BE42151920188F00A2FD15 /* AppDelegate.h */,
 				B9BE42161920188F00A2FD15 /* AppDelegate.m */,
 				B9BE42181920188F00A2FD15 /* Main.storyboard */,
-				B9BE421B1920188F00A2FD15 /* ViewController.h */,
-				B9BE421C1920188F00A2FD15 /* ViewController.m */,
+				B9BE424D192027AE00A2FD15 /* MobileGestalt.h */,
+				B9BE425619202DC700A2FD15 /* UIDevice-IOKitExtensions.h */,
+				B9BE425719202DC700A2FD15 /* UIDevice-IOKitExtensions.m */,
+				B9BE4248192021E200A2FD15 /* NIBs */,
+				B9BE424119201FFA00A2FD15 /* Controllers */,
 				B9BE421E1920188F00A2FD15 /* Images.xcassets */,
 				B9BE420D1920188F00A2FD15 /* Supporting Files */,
 			);
@@ -126,7 +157,7 @@
 		B9BE420D1920188F00A2FD15 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B9BE420E1920188F00A2FD15 /* TSS-Info.plist */,
+				B9BE420E1920188F00A2FD15 /* MobileTSS-Info.plist */,
 				B9BE420F1920188F00A2FD15 /* InfoPlist.strings */,
 				B9BE42121920188F00A2FD15 /* main.m */,
 				B9BE42141920188F00A2FD15 /* TSS-Prefix.pch */,
@@ -146,18 +177,39 @@
 		B9BE422C1920188F00A2FD15 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B9BE422D1920188F00A2FD15 /* TSSTests-Info.plist */,
+				B9BE422D1920188F00A2FD15 /* MobileTSSTests-Info.plist */,
 				B9BE422E1920188F00A2FD15 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B9BE424119201FFA00A2FD15 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B9BE423E19201FF400A2FD15 /* AllFirmwaresTableViewController.h */,
+				B9BE423F19201FF400A2FD15 /* AllFirmwaresTableViewController.m */,
+				B9BE42421920200700A2FD15 /* MyDeviceTableViewController.h */,
+				B9BE42431920200700A2FD15 /* MyDeviceTableViewController.m */,
+				B9BE42451920201500A2FD15 /* SearchTableViewController.h */,
+				B9BE42461920201500A2FD15 /* SearchTableViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B9BE4248192021E200A2FD15 /* NIBs */ = {
+			isa = PBXGroup;
+			children = (
+				B9BE4249192021F600A2FD15 /* NoResultsView.xib */,
+			);
+			name = NIBs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B9BE42021920188F00A2FD15 /* TSS */ = {
+		B9BE42021920188F00A2FD15 /* MobileTSS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B9BE42351920188F00A2FD15 /* Build configuration list for PBXNativeTarget "TSS" */;
+			buildConfigurationList = B9BE42351920188F00A2FD15 /* Build configuration list for PBXNativeTarget "MobileTSS" */;
 			buildPhases = (
 				B9BE41FF1920188F00A2FD15 /* Sources */,
 				B9BE42001920188F00A2FD15 /* Frameworks */,
@@ -167,14 +219,14 @@
 			);
 			dependencies = (
 			);
-			name = TSS;
+			name = MobileTSS;
 			productName = TSS;
-			productReference = B9BE42031920188F00A2FD15 /* TSS.app */;
+			productReference = B9BE42031920188F00A2FD15 /* MobileTSS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B9BE42231920188F00A2FD15 /* TSSTests */ = {
+		B9BE42231920188F00A2FD15 /* MobileTSSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B9BE42381920188F00A2FD15 /* Build configuration list for PBXNativeTarget "TSSTests" */;
+			buildConfigurationList = B9BE42381920188F00A2FD15 /* Build configuration list for PBXNativeTarget "MobileTSSTests" */;
 			buildPhases = (
 				B9BE42201920188F00A2FD15 /* Sources */,
 				B9BE42211920188F00A2FD15 /* Frameworks */,
@@ -185,9 +237,9 @@
 			dependencies = (
 				B9BE422A1920188F00A2FD15 /* PBXTargetDependency */,
 			);
-			name = TSSTests;
+			name = MobileTSSTests;
 			productName = TSSTests;
-			productReference = B9BE42241920188F00A2FD15 /* TSSTests.xctest */;
+			productReference = B9BE42241920188F00A2FD15 /* MobileTSSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -204,7 +256,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B9BE41FE1920188F00A2FD15 /* Build configuration list for PBXProject "TSS" */;
+			buildConfigurationList = B9BE41FE1920188F00A2FD15 /* Build configuration list for PBXProject "MobileTSS" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -217,8 +269,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B9BE42021920188F00A2FD15 /* TSS */,
-				B9BE42231920188F00A2FD15 /* TSSTests */,
+				B9BE42021920188F00A2FD15 /* MobileTSS */,
+				B9BE42231920188F00A2FD15 /* MobileTSSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -228,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9BE424A192021F600A2FD15 /* NoResultsView.xib in Resources */,
 				B9BE421F1920188F00A2FD15 /* Images.xcassets in Resources */,
 				B9BE42111920188F00A2FD15 /* InfoPlist.strings in Resources */,
 				B9BE421A1920188F00A2FD15 /* Main.storyboard in Resources */,
@@ -249,8 +302,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9BE421D1920188F00A2FD15 /* ViewController.m in Sources */,
+				B9BE425819202DC700A2FD15 /* UIDevice-IOKitExtensions.m in Sources */,
+				B9BE424019201FF400A2FD15 /* AllFirmwaresTableViewController.m in Sources */,
+				B9BE42441920200700A2FD15 /* MyDeviceTableViewController.m in Sources */,
 				B9BE42171920188F00A2FD15 /* AppDelegate.m in Sources */,
+				B9BE42471920201500A2FD15 /* SearchTableViewController.m in Sources */,
 				B9BE42131920188F00A2FD15 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +324,7 @@
 /* Begin PBXTargetDependency section */
 		B9BE422A1920188F00A2FD15 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B9BE42021920188F00A2FD15 /* TSS */;
+			target = B9BE42021920188F00A2FD15 /* MobileTSS */;
 			targetProxy = B9BE42291920188F00A2FD15 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -377,9 +433,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TSS/TSS-Prefix.pch";
-				INFOPLIST_FILE = "TSS/TSS-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "TSS/MobileTSS-Prefix.pch";
+				INFOPLIST_FILE = "TSS/MobileTSS-Info.plist";
+				PRODUCT_NAME = MobileTSS;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -390,9 +446,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TSS/TSS-Prefix.pch";
-				INFOPLIST_FILE = "TSS/TSS-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "TSS/MobileTSS-Prefix.pch";
+				INFOPLIST_FILE = "TSS/MobileTSS-Info.plist";
+				PRODUCT_NAME = MobileTSS;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -412,8 +468,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "TSSTests/TSSTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "TSSTests/MobileTSSTests-Info.plist";
+				PRODUCT_NAME = MobileTSSTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -430,8 +486,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TSS/TSS-Prefix.pch";
-				INFOPLIST_FILE = "TSSTests/TSSTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "TSSTests/MobileTSSTests-Info.plist";
+				PRODUCT_NAME = MobileTSSTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -440,7 +496,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B9BE41FE1920188F00A2FD15 /* Build configuration list for PBXProject "TSS" */ = {
+		B9BE41FE1920188F00A2FD15 /* Build configuration list for PBXProject "MobileTSS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B9BE42331920188F00A2FD15 /* Debug */,
@@ -449,7 +505,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B9BE42351920188F00A2FD15 /* Build configuration list for PBXNativeTarget "TSS" */ = {
+		B9BE42351920188F00A2FD15 /* Build configuration list for PBXNativeTarget "MobileTSS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B9BE42361920188F00A2FD15 /* Debug */,
@@ -457,7 +513,7 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		B9BE42381920188F00A2FD15 /* Build configuration list for PBXNativeTarget "TSSTests" */ = {
+		B9BE42381920188F00A2FD15 /* Build configuration list for PBXNativeTarget "MobileTSSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B9BE42391920188F00A2FD15 /* Debug */,

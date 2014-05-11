@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MyDeviceTableViewController.h
 //  TSS
 //
 //  Created by Haifisch on 5/11/14.
@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ViewController : UIViewController
+#import "UIDevice-IOKitExtensions.h"
+@interface MyDeviceTableViewController : UITableViewController
 
 @end

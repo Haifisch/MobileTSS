@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B9BE42021920188F00A2FD15"
                BuildableName = "TSS.app"
-               BlueprintName = "TSS"
-               ReferencedContainer = "container:TSS.xcodeproj">
+               BlueprintName = "MobileTSS"
+               ReferencedContainer = "container:MobileTSS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B9BE42231920188F00A2FD15"
                BuildableName = "TSSTests.xctest"
-               BlueprintName = "TSSTests"
-               ReferencedContainer = "container:TSS.xcodeproj">
+               BlueprintName = "MobileTSSTests"
+               ReferencedContainer = "container:MobileTSS.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B9BE42021920188F00A2FD15"
             BuildableName = "TSS.app"
-            BlueprintName = "TSS"
-            ReferencedContainer = "container:TSS.xcodeproj">
+            BlueprintName = "MobileTSS"
+            ReferencedContainer = "container:MobileTSS.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B9BE42021920188F00A2FD15"
             BuildableName = "TSS.app"
-            BlueprintName = "TSS"
-            ReferencedContainer = "container:TSS.xcodeproj">
+            BlueprintName = "MobileTSS"
+            ReferencedContainer = "container:MobileTSS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B9BE42021920188F00A2FD15"
             BuildableName = "TSS.app"
-            BlueprintName = "TSS"
-            ReferencedContainer = "container:TSS.xcodeproj">
+            BlueprintName = "MobileTSS"
+            ReferencedContainer = "container:MobileTSS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
