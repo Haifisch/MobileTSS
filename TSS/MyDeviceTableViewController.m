@@ -8,7 +8,6 @@
 
 #import "MyDeviceTableViewController.h"
 #import <IOKit/IOKit.h>
-#import "MobileGestalt.h"
 @interface MyDeviceTableViewController () {
     NSMutableArray *listings;
 
@@ -26,11 +25,7 @@
     }
     return self;
 }
--(id)getQueryWithValue:(CFStringRef)value {
-    CFStringRef _value = (CFStringRef)MGCopyAnswer(value);
-    return (__bridge NSString *)_value;
-    CFRelease(_value);
-}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
