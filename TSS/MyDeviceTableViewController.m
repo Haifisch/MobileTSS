@@ -7,7 +7,6 @@
 //
 
 #import "MyDeviceTableViewController.h"
-#import <IOKit/IOKit.h>
 @interface MyDeviceTableViewController () {
     NSMutableArray *listings;
 
@@ -33,13 +32,6 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"NoResultsView"
                                                bundle:[NSBundle mainBundle]]
          forCellReuseIdentifier:@"NoResultsCell"];
-
-    NSLog(@"%@",[[UIDevice currentDevice] serialnumber]);
-    UILabel *serialNumber = [[UILabel alloc] initWithFrame:CGRectMake(0, 430, 320,30)];
-    serialNumber.text = [[UIDevice currentDevice] serialnumber];
-    serialNumber.font = [UIFont fontWithName:@"HelveticaNeue" size:10];
-    serialNumber.textAlignment = NSTextAlignmentCenter;
-    [self.tableView addSubview:serialNumber];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

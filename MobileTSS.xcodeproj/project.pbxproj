@@ -28,7 +28,6 @@
 		B9BE424F192027C200A2FD15 /* libMobileGestalt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BE424E192027C200A2FD15 /* libMobileGestalt.dylib */; };
 		B9BE42511920281100A2FD15 /* liblockdown.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BE42501920281100A2FD15 /* liblockdown.dylib */; };
 		B9BE425319202B3500A2FD15 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BE425219202B3500A2FD15 /* CoreFoundation.framework */; };
-		B9BE425819202DC700A2FD15 /* UIDevice-IOKitExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BE425719202DC700A2FD15 /* UIDevice-IOKitExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,8 +69,6 @@
 		B9BE424E192027C200A2FD15 /* libMobileGestalt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMobileGestalt.dylib; path = usr/lib/libMobileGestalt.dylib; sourceTree = SDKROOT; };
 		B9BE42501920281100A2FD15 /* liblockdown.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liblockdown.dylib; path = usr/lib/liblockdown.dylib; sourceTree = SDKROOT; };
 		B9BE425219202B3500A2FD15 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		B9BE425619202DC700A2FD15 /* UIDevice-IOKitExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-IOKitExtensions.h"; sourceTree = "<group>"; };
-		B9BE425719202DC700A2FD15 /* UIDevice-IOKitExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-IOKitExtensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,8 +139,6 @@
 				B9BE42151920188F00A2FD15 /* AppDelegate.h */,
 				B9BE42161920188F00A2FD15 /* AppDelegate.m */,
 				B9BE42181920188F00A2FD15 /* Main.storyboard */,
-				B9BE425619202DC700A2FD15 /* UIDevice-IOKitExtensions.h */,
-				B9BE425719202DC700A2FD15 /* UIDevice-IOKitExtensions.m */,
 				B9BE4248192021E200A2FD15 /* NIBs */,
 				B9BE424119201FFA00A2FD15 /* Controllers */,
 				B9BE421E1920188F00A2FD15 /* Images.xcassets */,
@@ -300,7 +295,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9BE425819202DC700A2FD15 /* UIDevice-IOKitExtensions.m in Sources */,
 				B9BE424019201FF400A2FD15 /* AllFirmwaresTableViewController.m in Sources */,
 				B9BE42441920200700A2FD15 /* MyDeviceTableViewController.m in Sources */,
 				B9BE42171920188F00A2FD15 /* AppDelegate.m in Sources */,

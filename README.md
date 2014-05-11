@@ -3,6 +3,8 @@ MobileTSS
 
 Mobile TSS utility; Search blobs by ECID, List all firmwares being signed, List device blobs for current device
 
+NOTE: This doesn't do much (if anything) yet. Its in EARLY DEVELOPMENT
+
 TODO
 ====
 - Get (current) device ECID

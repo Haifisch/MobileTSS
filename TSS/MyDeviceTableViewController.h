@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIDevice-IOKitExtensions.h"
 @interface MyDeviceTableViewController : UITableViewController
 
 @end
