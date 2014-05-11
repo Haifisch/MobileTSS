@@ -10,7 +10,8 @@
 
 @interface AllFirmwaresTableViewController ()
 {
-    id jsonDict;
+    NSMutableDictionary *jsonArray;
+    NSMutableArray *deviceNames;
 }
 
 @end
@@ -29,12 +30,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    deviceNames = [[NSMutableArray alloc] init];
+    jsonArray = [[NSMutableDictionary alloc] init];
+
     NSError *err;
-    jsonDict = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://api.ineal.me/tss/all"]] options:0 error:&err];
+    jsonArray = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://api.ineal.me/tss/all"]] options:0 error:&err];
     if (err == nil) {
         [self.tableView reloadData];
+        for (NSString* currentString in jsonArray)
+        {
+            [deviceNames addObject:currentString];
+        }
     }
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,16 +61,15 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [jsonDict count];
+    return [jsonArray count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DeviceInformationCell" forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    cell.textLabel.text = deviceNames[indexPath.row];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ is being signed",[[[[jsonArray objectForKey:deviceNames[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"version"]];
     return cell;
 }
 
