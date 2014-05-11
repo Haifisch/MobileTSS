@@ -67,7 +67,6 @@
 		B9BE42461920201500A2FD15 /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
 		B9BE4249192021F600A2FD15 /* NoResultsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoResultsView.xib; sourceTree = "<group>"; };
 		B9BE424B192026F500A2FD15 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
-		B9BE424D192027AE00A2FD15 /* MobileGestalt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileGestalt.h; sourceTree = "<group>"; };
 		B9BE424E192027C200A2FD15 /* libMobileGestalt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMobileGestalt.dylib; path = usr/lib/libMobileGestalt.dylib; sourceTree = SDKROOT; };
 		B9BE42501920281100A2FD15 /* liblockdown.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liblockdown.dylib; path = usr/lib/liblockdown.dylib; sourceTree = SDKROOT; };
 		B9BE425219202B3500A2FD15 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -143,7 +142,6 @@
 				B9BE42151920188F00A2FD15 /* AppDelegate.h */,
 				B9BE42161920188F00A2FD15 /* AppDelegate.m */,
 				B9BE42181920188F00A2FD15 /* Main.storyboard */,
-				B9BE424D192027AE00A2FD15 /* MobileGestalt.h */,
 				B9BE425619202DC700A2FD15 /* UIDevice-IOKitExtensions.h */,
 				B9BE425719202DC700A2FD15 /* UIDevice-IOKitExtensions.m */,
 				B9BE4248192021E200A2FD15 /* NIBs */,
