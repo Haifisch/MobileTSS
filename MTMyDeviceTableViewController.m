@@ -8,15 +8,23 @@
 
 @implementation MTMyDeviceTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style {
-    self = [super initWithStyle:style];
-    if (self) {
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh 
+                                                                        target:self 
+                                                                        action:@selector(refreshBlobs)];
+    [self refreshBlobs];
+}
+
+-(void)refreshBlobs {
+
+    if (listings) {
+        [listings removeAllObjects];
+        listings = nil;
+    }
+
+    listings = [[NSMutableArray alloc] init];
+
     NSError *error = NULL;
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://cydia.saurik.com/tss@home/api/check/%@",MGCopyAnswer(kMGUniqueChipID)]]];
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:NULL error:&error];
@@ -27,10 +35,6 @@
         listings = [[NSMutableArray alloc] init];
         [listings addObject:@"No available Blobs"];
     }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 #pragma mark - Table view data source
@@ -51,28 +55,33 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    NSString *cellIdentifier = @"";
+    BOOL noResults = FALSE;
+
     if ([listings count] == 0) {
 
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NoResultsCell"];
-        
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"NoResultsCell"];
-        }
-        
-        cell.backgroundColor = [UIColor clearColor];
-        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-        cell.textLabel.text = @"No Records to display";
-        
-        return cell;
+        cellIdentifier = @"NoResultsCell";
+        noResults = TRUE;
+
+    } else {
+
+        cellIdentifier = @"ResultsCell";
+        noResults = FALSE;
     }
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ResultsCell"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"ResultsCell"];
+        cell = [[UITableViewCell alloc] initWithStyle:noResults ? UITableViewCellStyleDefault : UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
     }
 
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ (%@)",[listings[indexPath.row] objectForKey:@"model"],[listings[indexPath.row] objectForKey:@"build"]];
+    if (noResults) {
+        cell.backgroundColor = [UIColor clearColor];
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    }
+
+    cell.textLabel.text = noResults ? @"No records to display" : [NSString stringWithFormat:@"%@ (%@)",[listings[indexPath.row] objectForKey:@"model"],[listings[indexPath.row] objectForKey:@"build"]];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [listings[indexPath.row] objectForKey:@"firmware"]];
     
     return cell;

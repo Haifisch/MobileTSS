@@ -15,6 +15,7 @@
 }
 
 - (void)viewDidLoad {
+
     [super viewDidLoad];
 
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 0)];
@@ -23,8 +24,6 @@
     ((UITextField*)[self.searchBar valueForKey:@"_searchField"]).clearButtonMode = UITextFieldViewModeWhileEditing;
     self.tableView.tableHeaderView = self.searchBar;
     [self.searchBar setDelegate:self];
-    [self.searchBar becomeFirstResponder];
-    [self.tableView registerNib:[UINib nibWithNibName:@"NoResultsView" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"NoResultsCell"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,10 +53,6 @@
     }
 }
 
-- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar {
-    return YES;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SHSHCell"];
     
@@ -66,7 +61,7 @@
     }
 
     cell.textLabel.text = [requestData[indexPath.row] objectForKey:@"model"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [requestData[indexPath.row] objectForKey:@"firmware"]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[requestData[indexPath.row] objectForKey:@"firmware"]];
 
     return cell;
 }
@@ -89,7 +84,6 @@
 }
 
 -(void)dismissKeyboard {
-    
     [[self.searchBar valueForKey:@"_searchField"] resignFirstResponder];
 }
 
