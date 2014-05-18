@@ -12,13 +12,6 @@
 {
     NSMutableDictionary *jsonArray;
     NSMutableArray *deviceNames;
-    NSMutableArray *iPhoneArray;
-    NSMutableArray *iPadArray;
-    NSMutableArray *iPodArray;
-
-    NSInteger numberOfiPadCells;
-    NSInteger numberOfiPhoneCells;
-    NSInteger numberOfiPodCells;
 }
 
 @end
@@ -37,52 +30,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     deviceNames = [[NSMutableArray alloc] init];
     jsonArray = [[NSMutableDictionary alloc] init];
-    iPhoneArray = [[NSMutableArray alloc] init];
-    iPadArray = [[NSMutableArray alloc] init];
-    iPodArray = [[NSMutableArray alloc] init];
-
-    [self getDataAndSort];
     
-}
--(void)getDataAndSort {
-    
-    NSString* filter = @"%K CONTAINS %@";
     NSError *err;
     jsonArray = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://api.ineal.me/tss/all"]] options:0 error:&err];
     if (err == nil) {
         [self.tableView reloadData];
-        for (NSString* currentString in jsonArray)
-        {
+        for (NSString *currentString in jsonArray) {
             [deviceNames addObject:currentString];
         }
     }
-    if (deviceNames != NULL) {
-        int count = 0;
-        while ([deviceNames count] > count) {
-            if ([deviceNames[count] rangeOfString:@"iPad"].location != NSNotFound) {
-                [iPadArray addObject:deviceNames[count]];
-                numberOfiPadCells++;
-            }
-            if ([deviceNames[count] rangeOfString:@"iPhone"].location != NSNotFound) {
-                [iPhoneArray addObject:deviceNames[count]];
-                numberOfiPhoneCells++;
-            }
-            if ([deviceNames[count] rangeOfString:@"iPod"].location != NSNotFound) {
-                [iPodArray addObject:deviceNames[count]];
-                numberOfiPodCells++;
-            }
-            count++;
-        }
-    }
-
     [self.tableView reloadData];
-    NSLog(@"%@",iPadArray);
-}
--(void)viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,120 +53,132 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 3;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 4;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    //NSLog(@"iPad: %li iPhone: %li iPod: %li",(long)numberOfiPadCells,(long)numberOfiPhoneCells,(long)numberOfiPodCells);
-    if (section == 0) {
-        return numberOfiPhoneCells;
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    switch (section) {
+        case 0:
+            return @"iPhone";
+            break;
+            
+        case 1:
+            return @"iPad";
+            break;
+            
+        case 2:
+            return @"iPod";
+            break;
+            
+        case 3:
+            return @"Apple TV";
+            break;
+            
+        default:
+            return @"Others";
+            break;
     }
-    else if (section == 1) {
-        return numberOfiPodCells;
-    }
-    else if (section == 2) {
-        return numberOfiPadCells;
-    }
-    return nil;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    if(section == 0)
-    {
-        return @"iPhone";
+-(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    
+    switch (section) {
+        case 0:
+            return [NSString stringWithFormat:@"%d Devices being signed",[deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPhone).*'"]].count];
+            break;
+            
+        case 1:
+            return [NSString stringWithFormat:@"%d Devices being signed",[deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPad).*'"]].count];
+            break;
+            
+        case 2:
+            return [NSString stringWithFormat:@"%d Devices being signed",[deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPod).*'"]].count];
+            break;
+            
+        case 3:
+            return [NSString stringWithFormat:@"%d Devices being signed",[deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(AppleTV).*'"]].count];
+            break;
+            
+        default:
+            return @"";
+            break;
     }
-    else if(section == 1)
-    {
-        return @"iPod";
-    }
-    else
-    {
-        return @"iPad";
-        
-    }
+
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    switch (section) {
+        case 0:
+            return [deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPhone).*'"]].count;
+            break;
+            
+        case 1:
+            return [deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPad).*'"]].count;
+            break;
+            
+        case 2:
+            return [deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPod).*'"]].count;
+            break;
+            
+        case 3:
+            return [deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(AppleTV).*'"]].count;
+            break;
+            
+        default:
+            return 0;
+            break;
+    }
+    return 0;
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DeviceInformationCell" forIndexPath:indexPath];
+    
     switch (indexPath.section) {
-        case 0:
-            cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",iPhoneArray[indexPath.row],[[jsonArray objectForKey:iPhoneArray[indexPath.row]] objectForKey:@"board"]];
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ is being signed",[[[[jsonArray objectForKey:iPhoneArray[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"version"]];
+        case 0: {
+            NSArray *iPhones = [deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPhone).*'"]];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",iPhones[indexPath.row],[[jsonArray objectForKey:iPhones[indexPath.row]] objectForKey:@"board"]];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%@) is being signed",[[[[jsonArray objectForKey:iPhones[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"version"],[[[[jsonArray objectForKey:iPhones[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"build"]];
+        }
+            break;
+            
+        case 1: {
+            NSArray *iPads = [deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPad).*'"]];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",iPads[indexPath.row],[[jsonArray objectForKey:iPads[indexPath.row]] objectForKey:@"board"]];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%@) is being signed",[[[[jsonArray objectForKey:iPads[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"version"],[[[[jsonArray objectForKey:iPads[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"build"]];
+        }
 
             break;
-        case 1:
-            cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",iPodArray[indexPath.row],[[jsonArray objectForKey:iPodArray[indexPath.row]] objectForKey:@"board"]];
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ is being signed",[[[[jsonArray objectForKey:iPodArray[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"version"]];
-
+            
+        case 2: {
+            NSArray *iPods = [deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPod).*'"]];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",iPods[indexPath.row],[[jsonArray objectForKey:iPods[indexPath.row]] objectForKey:@"board"]];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%@) is being signed",[[[[jsonArray objectForKey:iPods[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"version"],[[[[jsonArray objectForKey:iPods[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"build"]];
+        }
             break;
-        case 2:
-            cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",iPadArray[indexPath.row],[[jsonArray objectForKey:iPadArray[indexPath.row]] objectForKey:@"board"]];
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ is being signed",[[[[jsonArray objectForKey:iPadArray[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"version"]];
-
+            
+        case 3: {
+            NSArray *appleTVs = [deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(AppleTV).*'"]];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",appleTVs[indexPath.row],[[jsonArray objectForKey:appleTVs[indexPath.row]] objectForKey:@"board"]];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%@) is being signed",[[[[jsonArray objectForKey:appleTVs[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"version"],[[[[jsonArray objectForKey:appleTVs[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"build"]];
+        }
             break;
             
         default:
             break;
     }
+    
     return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (IBAction)selectionChanged:(id)sender {
-}
 @end

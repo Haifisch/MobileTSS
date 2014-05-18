@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface AllFirmwaresTableViewController : UITableViewController
-- (IBAction)selectionChanged:(id)sender;
 
 @end

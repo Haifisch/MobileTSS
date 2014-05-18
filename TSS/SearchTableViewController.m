@@ -32,20 +32,8 @@
     [self.searchBar setDelegate:self];
     [self.searchBar becomeFirstResponder];
     [self.tableView registerNib:[UINib nibWithNibName:@"NoResultsView" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"NoResultsCell"];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    
-    [self.tableView addGestureRecognizer:tap];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
--(void)dismissKeyboard {
-    [self.searchBar resignFirstResponder];
-}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -68,8 +56,6 @@
 }
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
-    [searchBar setShowsCancelButton:NO animated:YES];
-
     if ([searchBar text].length == 13) {
         requestData = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://cydia.saurik.com/tss@home/api/check/%@",[searchBar text]]]] options:0 error:nil];
         if ([requestData count] > 0) {
@@ -85,24 +71,37 @@
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SHSHCell" forIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"SHSHCell"];
     cell.textLabel.text = [requestData[indexPath.row] objectForKey:@"model"];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [requestData[indexPath.row] objectForKey:@"firmware"]];
     
-    return  cell;
-    // Configure the cell...
+    return cell;
 }
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
-{
-    [searchBar setShowsCancelButton:YES animated:YES];
+
+-(UIToolbar *)createInputAccessoryView{
+    
+    UIToolbar *tb = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40)];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dismissKeyboard)];
+    UIBarButtonItem *flexItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                              target:nil
+                                                                              action:nil];
+    
+    [tb setItems:@[flexItem,item]];
+    
+    return tb;
 }
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-    [searchBar resignFirstResponder];
-    [searchBar setShowsCancelButton:NO animated:YES];
+
+-(void)dismissKeyboard {
+    
+    [[self.searchBar valueForKey:@"_searchField"] resignFirstResponder];
+}
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+    UIToolbar *tb = [self createInputAccessoryView];
+    [[searchBar valueForKey:@"_searchField"] setInputAccessoryView:tb];
+    return TRUE;
 }
 
 /*
