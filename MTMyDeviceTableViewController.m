@@ -17,11 +17,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    listings = [[NSMutableArray alloc] init];
-    
-    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"ChipID" message:[NSString stringWithFormat:@"%@",MGCopyAnswer(kMGChipID)] delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-    [av show];
+    NSError *error = NULL;
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://cydia.saurik.com/tss@home/api/check/%@",MGCopyAnswer(kMGUniqueChipID)]]];
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:NULL error:&error];
+
+    if (data && !error) {
+        listings = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    } else {
+        listings = [[NSMutableArray alloc] init];
+        [listings addObject:@"No available Blobs"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,7 +39,6 @@
     return 1;
 }
 
-
 -(NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section {
     if ([listings count] == 0) {
         return 1; 
@@ -42,8 +46,11 @@
     return [listings count];
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [NSString stringWithFormat:@"ECID: %@",MGCopyAnswer(kMGUniqueChipID)];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([listings count] == 0) {
 
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NoResultsCell"];
@@ -62,12 +69,13 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ResultsCell"];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ResultsCell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"ResultsCell"];
     }
 
-    cell.textLabel.text = listings[indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ (%@)",[listings[indexPath.row] objectForKey:@"model"],[listings[indexPath.row] objectForKey:@"build"]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [listings[indexPath.row] objectForKey:@"firmware"]];
     
-    return nil;
+    return cell;
 }
 
 @end
