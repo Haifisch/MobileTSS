@@ -117,6 +117,10 @@
     return 0;
 }
 
+-(BOOL)isCurrentDevice:(NSString *)name {
+   return [name isEqualToString:[NSString stringWithFormat:@"%@",MGCopyAnswer(kMGProductType)]];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DeviceInformationCell"];
@@ -127,9 +131,11 @@
     
     switch (indexPath.section) {
         case 0: {
+
             NSArray *iPhones = [deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPhone).*'"]];
             cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",iPhones[indexPath.row],[[jsonArray objectForKey:iPhones[indexPath.row]] objectForKey:@"board"]];
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%@) is being signed",[[[[jsonArray objectForKey:iPhones[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"version"],[[[[jsonArray objectForKey:iPhones[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"build"]];
+            cell.textLabel.textColor = [self isCurrentDevice:iPhones[indexPath.row]] ? [UIColor greenColor] : [UIColor blackColor];
         }
             break;
             
@@ -137,6 +143,7 @@
             NSArray *iPads = [deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPad).*'"]];
             cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",iPads[indexPath.row],[[jsonArray objectForKey:iPads[indexPath.row]] objectForKey:@"board"]];
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%@) is being signed",[[[[jsonArray objectForKey:iPads[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"version"],[[[[jsonArray objectForKey:iPads[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"build"]];
+            cell.textLabel.textColor = [self isCurrentDevice:iPads[indexPath.row]] ? [UIColor greenColor] : [UIColor blackColor];
         }
 
             break;
@@ -145,6 +152,7 @@
             NSArray *iPods = [deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPod).*'"]];
             cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",iPods[indexPath.row],[[jsonArray objectForKey:iPods[indexPath.row]] objectForKey:@"board"]];
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%@) is being signed",[[[[jsonArray objectForKey:iPods[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"version"],[[[[jsonArray objectForKey:iPods[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"build"]];
+            cell.textLabel.textColor = [self isCurrentDevice:iPods[indexPath.row]] ? [UIColor greenColor] : [UIColor blackColor];
         }
             break;
             
@@ -152,6 +160,7 @@
             NSArray *appleTVs = [deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(AppleTV).*'"]];
             cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",appleTVs[indexPath.row],[[jsonArray objectForKey:appleTVs[indexPath.row]] objectForKey:@"board"]];
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%@) is being signed",[[[[jsonArray objectForKey:appleTVs[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"version"],[[[[jsonArray objectForKey:appleTVs[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"build"]];
+            cell.textLabel.textColor = [self isCurrentDevice:appleTVs[indexPath.row]] ? [UIColor greenColor] : [UIColor blackColor];
         }
             break;
             
