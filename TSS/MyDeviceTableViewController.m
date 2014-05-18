@@ -28,10 +28,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     listings = [[NSMutableArray alloc] init];
     [self.tableView registerNib:[UINib nibWithNibName:@"NoResultsView"
                                                bundle:[NSBundle mainBundle]]
          forCellReuseIdentifier:@"NoResultsCell"];
+
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

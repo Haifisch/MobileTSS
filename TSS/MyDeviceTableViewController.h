@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MobileGestalt.h"
 @interface MyDeviceTableViewController : UITableViewController
 
 @end

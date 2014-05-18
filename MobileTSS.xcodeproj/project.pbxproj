@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B90394E919285E60009DCC9C /* SHSHAvailable.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90394E819285E60009DCC9C /* SHSHAvailable.xib */; };
+		B91AD9C419244F1500273B82 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B91AD9C319244F1500273B82 /* Security.framework */; };
 		B9BE42071920188F00A2FD15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BE42061920188F00A2FD15 /* Foundation.framework */; };
 		B9BE42091920188F00A2FD15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BE42081920188F00A2FD15 /* CoreGraphics.framework */; };
 		B9BE420B1920188F00A2FD15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BE420A1920188F00A2FD15 /* UIKit.framework */; };
@@ -24,9 +26,6 @@
 		B9BE42441920200700A2FD15 /* MyDeviceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BE42431920200700A2FD15 /* MyDeviceTableViewController.m */; };
 		B9BE42471920201500A2FD15 /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BE42461920201500A2FD15 /* SearchTableViewController.m */; };
 		B9BE424A192021F600A2FD15 /* NoResultsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9BE4249192021F600A2FD15 /* NoResultsView.xib */; };
-		B9BE424C192026F500A2FD15 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BE424B192026F500A2FD15 /* IOKit.framework */; };
-		B9BE424F192027C200A2FD15 /* libMobileGestalt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BE424E192027C200A2FD15 /* libMobileGestalt.dylib */; };
-		B9BE42511920281100A2FD15 /* liblockdown.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BE42501920281100A2FD15 /* liblockdown.dylib */; };
 		B9BE425319202B3500A2FD15 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BE425219202B3500A2FD15 /* CoreFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B90394E819285E60009DCC9C /* SHSHAvailable.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHSHAvailable.xib; sourceTree = "<group>"; };
+		B91AD9C219244E6A00273B82 /* MobileGestalt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileGestalt.h; sourceTree = "<group>"; };
+		B91AD9C319244F1500273B82 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B9BE42031920188F00A2FD15 /* MobileTSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileTSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9BE42061920188F00A2FD15 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B9BE42081920188F00A2FD15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -76,10 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B91AD9C419244F1500273B82 /* Security.framework in Frameworks */,
 				B9BE425319202B3500A2FD15 /* CoreFoundation.framework in Frameworks */,
-				B9BE42511920281100A2FD15 /* liblockdown.dylib in Frameworks */,
-				B9BE424F192027C200A2FD15 /* libMobileGestalt.dylib in Frameworks */,
-				B9BE424C192026F500A2FD15 /* IOKit.framework in Frameworks */,
 				B9BE42091920188F00A2FD15 /* CoreGraphics.framework in Frameworks */,
 				B9BE420B1920188F00A2FD15 /* UIKit.framework in Frameworks */,
 				B9BE42071920188F00A2FD15 /* Foundation.framework in Frameworks */,
@@ -121,6 +121,7 @@
 		B9BE42051920188F00A2FD15 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B91AD9C319244F1500273B82 /* Security.framework */,
 				B9BE425219202B3500A2FD15 /* CoreFoundation.framework */,
 				B9BE42501920281100A2FD15 /* liblockdown.dylib */,
 				B9BE424E192027C200A2FD15 /* libMobileGestalt.dylib */,
@@ -138,6 +139,7 @@
 			children = (
 				B9BE42151920188F00A2FD15 /* AppDelegate.h */,
 				B9BE42161920188F00A2FD15 /* AppDelegate.m */,
+				B91AD9C219244E6A00273B82 /* MobileGestalt.h */,
 				B9BE42181920188F00A2FD15 /* Main.storyboard */,
 				B9BE4248192021E200A2FD15 /* NIBs */,
 				B9BE424119201FFA00A2FD15 /* Controllers */,
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				B9BE4249192021F600A2FD15 /* NoResultsView.xib */,
+				B90394E819285E60009DCC9C /* SHSHAvailable.xib */,
 			);
 			name = NIBs;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				B9BE421F1920188F00A2FD15 /* Images.xcassets in Resources */,
 				B9BE42111920188F00A2FD15 /* InfoPlist.strings in Resources */,
 				B9BE421A1920188F00A2FD15 /* Main.storyboard in Resources */,
+				B90394E919285E60009DCC9C /* SHSHAvailable.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +508,7 @@
 				B9BE42371920188F00A2FD15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B9BE42381920188F00A2FD15 /* Build configuration list for PBXNativeTarget "MobileTSSTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +517,7 @@
 				B9BE423A1920188F00A2FD15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

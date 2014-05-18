@@ -8,7 +8,10 @@
 
 #import "SearchTableViewController.h"
 
-@interface SearchTableViewController ()
+@interface SearchTableViewController () {
+    NSMutableArray *requestData;
+
+}
 
 @end
 
@@ -26,6 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.searchBar setDelegate:self];
+    [self.searchBar becomeFirstResponder];
+    [self.tableView registerNib:[UINib nibWithNibName:@"NoResultsView" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"NoResultsCell"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -43,28 +49,44 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [requestData count];
+}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+    if ([searchBar text].length == 13) {
+        requestData = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://cydia.saurik.com/tss@home/api/check/%@",[searchBar text]]]] options:0 error:nil];
+        if ([requestData count] > 0) {
+            [self.tableView reloadData];
+        }else {
+            [[[UIAlertView alloc] initWithTitle:@"SHSH" message:@"No SHSH blobs found for this ECID" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+        }
+
+    }
+}
+- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar {
+    return YES;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SHSHCell" forIndexPath:indexPath];
+    UITableViewCell *cell = cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"SHSHCell"];
+    cell.textLabel.text = [requestData[indexPath.row] objectForKey:@"model"];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [requestData[indexPath.row] objectForKey:@"firmware"]];
     
+    return  cell;
     // Configure the cell...
-    
-    return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

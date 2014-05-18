@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchTableViewController : UITableViewController 
+@interface SearchTableViewController : UITableViewController <UISearchBarDelegate>
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

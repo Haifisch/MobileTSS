@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B9BE42021920188F00A2FD15"
-               BuildableName = "TSS.app"
+               BuildableName = "MobileTSS.app"
                BlueprintName = "MobileTSS"
                ReferencedContainer = "container:MobileTSS.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B9BE42231920188F00A2FD15"
-               BuildableName = "TSSTests.xctest"
+               BuildableName = "MobileTSSTests.xctest"
                BlueprintName = "MobileTSSTests"
                ReferencedContainer = "container:MobileTSS.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B9BE42021920188F00A2FD15"
-            BuildableName = "TSS.app"
+            BuildableName = "MobileTSS.app"
             BlueprintName = "MobileTSS"
             ReferencedContainer = "container:MobileTSS.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B9BE42021920188F00A2FD15"
-            BuildableName = "TSS.app"
+            BuildableName = "MobileTSS.app"
             BlueprintName = "MobileTSS"
             ReferencedContainer = "container:MobileTSS.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B9BE42021920188F00A2FD15"
-            BuildableName = "TSS.app"
+            BuildableName = "MobileTSS.app"
             BlueprintName = "MobileTSS"
             ReferencedContainer = "container:MobileTSS.xcodeproj">
          </BuildableReference>

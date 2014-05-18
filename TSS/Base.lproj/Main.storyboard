@@ -107,7 +107,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Enter ECID" id="Sx9-ee-jqy">
+                        <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Enter Decimal ECID" id="Sx9-ee-jqy">
                             <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
@@ -132,19 +132,10 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Search for blobs with ECID" id="Z4e-xp-cKD"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="ZIP-30-OTW" id="frN-6I-mqw"/>
+                        <outlet property="searchBar" destination="Sx9-ee-jqy" id="jtE-3A-S2N"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="exh-VF-wwo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="ZIP-30-OTW">
-                    <connections>
-                        <outlet property="delegate" destination="IcT-V3-ROS" id="Ljx-4j-0b3"/>
-                        <outlet property="searchBar" destination="Sx9-ee-jqy" id="lBz-T2-WyO"/>
-                        <outlet property="searchContentsController" destination="IcT-V3-ROS" id="1JE-FP-IrW"/>
-                        <outlet property="searchResultsDataSource" destination="IcT-V3-ROS" id="RsV-OK-u8j"/>
-                        <outlet property="searchResultsDelegate" destination="IcT-V3-ROS" id="Ust-UO-IT4"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1795" y="1481"/>
         </scene>
@@ -171,7 +162,7 @@
         <scene sceneID="IUa-B8-Bpg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EeC-ee-jqH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="This Device" image="iPhone_Tab" id="RQK-Hg-dUm"/>
+                    <tabBarItem key="tabBarItem" enabled="NO" title="This Device" image="iPhone_Tab" id="RQK-Hg-dUm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="w4Y-G0-5Bq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
