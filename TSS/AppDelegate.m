@@ -7,11 +7,18 @@
 //
 
 #import "AppDelegate.h"
-
+#define NEW_UI 0
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    if (NEW_UI) {
+        [[UITabBar appearance] setBarStyle:UIBarStyleBlack];
+        [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
+        [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
+        [[UISegmentedControl appearance] setTintColor:[UIColor whiteColor]];
+    }
+    
     // Override point for customization after application launch.
     return YES;
 }

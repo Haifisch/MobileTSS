@@ -4,17 +4,17 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--All Firmwares Table View Controller - All signed firmwares-->
+        <!--All Firmwares Table View Controller - All-->
         <scene sceneID="YbY-Ny-gSH">
             <objects>
                 <tableViewController id="PWa-92-Y78" customClass="AllFirmwaresTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" id="e6d-be-W9a">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="e6d-be-W9a">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DeviceInformationCell" textLabel="xI3-ul-OI7" detailTextLabel="l6R-Dx-LTG" rowHeight="52" style="IBUITableViewCellStyleSubtitle" id="xTn-f4-FMO">
-                                <rect key="frame" x="0.0" y="86" width="320" height="52"/>
+                                <rect key="frame" x="0.0" y="119" width="320" height="52"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xTn-f4-FMO" id="Jhc-L0-mfH">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
@@ -43,7 +43,7 @@
                             <outlet property="delegate" destination="PWa-92-Y78" id="vTL-Jg-cbu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="All signed firmwares" id="vqm-Ct-0AS"/>
+                    <navigationItem key="navigationItem" title="All" id="vqm-Ct-0AS"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jt3-LC-9N0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

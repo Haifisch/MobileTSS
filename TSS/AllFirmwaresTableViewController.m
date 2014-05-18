@@ -12,6 +12,13 @@
 {
     NSMutableDictionary *jsonArray;
     NSMutableArray *deviceNames;
+    NSMutableArray *iPhoneArray;
+    NSMutableArray *iPadArray;
+    NSMutableArray *iPodArray;
+
+    NSInteger numberOfiPadCells;
+    NSInteger numberOfiPhoneCells;
+    NSInteger numberOfiPodCells;
 }
 
 @end
@@ -32,7 +39,16 @@
     [super viewDidLoad];
     deviceNames = [[NSMutableArray alloc] init];
     jsonArray = [[NSMutableDictionary alloc] init];
+    iPhoneArray = [[NSMutableArray alloc] init];
+    iPadArray = [[NSMutableArray alloc] init];
+    iPodArray = [[NSMutableArray alloc] init];
 
+    [self getDataAndSort];
+    
+}
+-(void)getDataAndSort {
+    
+    NSString* filter = @"%K CONTAINS %@";
     NSError *err;
     jsonArray = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://api.ineal.me/tss/all"]] options:0 error:&err];
     if (err == nil) {
@@ -42,6 +58,31 @@
             [deviceNames addObject:currentString];
         }
     }
+    if (deviceNames != NULL) {
+        int count = 0;
+        while ([deviceNames count] > count) {
+            if ([deviceNames[count] rangeOfString:@"iPad"].location != NSNotFound) {
+                [iPadArray addObject:deviceNames[count]];
+                numberOfiPadCells++;
+            }
+            if ([deviceNames[count] rangeOfString:@"iPhone"].location != NSNotFound) {
+                [iPhoneArray addObject:deviceNames[count]];
+                numberOfiPhoneCells++;
+            }
+            if ([deviceNames[count] rangeOfString:@"iPod"].location != NSNotFound) {
+                [iPodArray addObject:deviceNames[count]];
+                numberOfiPodCells++;
+            }
+            count++;
+        }
+    }
+
+    [self.tableView reloadData];
+    NSLog(@"%@",iPadArray);
+}
+-(void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,21 +96,64 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [jsonArray count];
+    //NSLog(@"iPad: %li iPhone: %li iPod: %li",(long)numberOfiPadCells,(long)numberOfiPhoneCells,(long)numberOfiPodCells);
+    if (section == 0) {
+        return numberOfiPhoneCells;
+    }
+    else if (section == 1) {
+        return numberOfiPodCells;
+    }
+    else if (section == 2) {
+        return numberOfiPadCells;
+    }
+    return nil;
 }
 
-
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if(section == 0)
+    {
+        return @"iPhone";
+    }
+    else if(section == 1)
+    {
+        return @"iPod";
+    }
+    else
+    {
+        return @"iPad";
+        
+    }
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DeviceInformationCell" forIndexPath:indexPath];
-    cell.textLabel.text = deviceNames[indexPath.row];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ is being signed",[[[[jsonArray objectForKey:deviceNames[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"version"]];
+    switch (indexPath.section) {
+        case 0:
+            cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",iPhoneArray[indexPath.row],[[jsonArray objectForKey:iPhoneArray[indexPath.row]] objectForKey:@"board"]];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ is being signed",[[[[jsonArray objectForKey:iPhoneArray[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"version"]];
+
+            break;
+        case 1:
+            cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",iPodArray[indexPath.row],[[jsonArray objectForKey:iPodArray[indexPath.row]] objectForKey:@"board"]];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ is being signed",[[[[jsonArray objectForKey:iPodArray[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"version"]];
+
+            break;
+        case 2:
+            cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",iPadArray[indexPath.row],[[jsonArray objectForKey:iPadArray[indexPath.row]] objectForKey:@"board"]];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ is being signed",[[[[jsonArray objectForKey:iPadArray[indexPath.row]] objectForKey:@"firmwares"] objectAtIndex:0] objectForKey:@"version"]];
+
+            break;
+            
+        default:
+            break;
+    }
     return cell;
 }
 
@@ -123,4 +207,6 @@
 }
 */
 
+- (IBAction)selectionChanged:(id)sender {
+}
 @end
