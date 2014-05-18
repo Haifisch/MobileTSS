@@ -43,11 +43,63 @@
                             <outlet property="delegate" destination="PWa-92-Y78" id="vTL-Jg-cbu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="All" id="vqm-Ct-0AS"/>
+                    <navigationItem key="navigationItem" title="All" id="vqm-Ct-0AS">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="pjW-vZ-Vml">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="RoT-V7-6PG">
+                                <rect key="frame" x="282" y="11" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="mOR-nh-R6c" kind="push" id="LjV-6d-rmS"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jt3-LC-9N0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1795" y="159"/>
+        </scene>
+        <!--View Controller - About-->
+        <scene sceneID="0gf-jL-tSg">
+            <objects>
+                <viewController id="mOR-nh-R6c" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CNG-SU-oeu"/>
+                        <viewControllerLayoutGuide type="bottom" id="TE2-Y6-BAd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G20-DU-rg4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MobileTSS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tb-YW-86X">
+                                <rect key="frame" x="20" y="131" width="280" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="44"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="by GokuLabs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09A-28-4eB">
+                                <rect key="frame" x="109" y="208" width="103" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ArtworkRound.png" translatesAutoresizingMaskIntoConstraints="NO" id="tlk-av-J39">
+                                <rect key="frame" x="60" y="254" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="About" id="nY0-BN-Xm5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JZa-4e-8SS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2284" y="159"/>
         </scene>
         <!--My Device Table View Controller - SHSH blobs for this device-->
         <scene sceneID="zRQ-as-6q2">
@@ -107,10 +159,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Enter Decimal ECID" id="Sx9-ee-jqy">
+                        <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Enter Decimal ECID" showsCancelButton="YES" id="Sx9-ee-jqy">
                             <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                                <string>Title</string>
+                            </scopeButtonTitles>
                             <connections>
                                 <outlet property="delegate" destination="IcT-V3-ROS" id="kAR-b0-PID"/>
                             </connections>
@@ -199,6 +255,7 @@
     </scenes>
     <resources>
         <image name="All" width="28" height="28"/>
+        <image name="ArtworkRound.png" width="1024" height="1024"/>
         <image name="Search" width="28" height="28"/>
         <image name="iPhone_Tab" width="28" height="28"/>
     </resources>
