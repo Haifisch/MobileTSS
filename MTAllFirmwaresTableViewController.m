@@ -1,40 +1,29 @@
-//
-//  AllFirmwaresTableViewController.m
-//  TSS
-//
-//  Created by Haifisch on 5/11/14.
-//  Copyright (c) 2014 Haifisch. All rights reserved.
-//
+#import "MTAllFirmwaresTableViewController.h"
 
-#import "AllFirmwaresTableViewController.h"
-
-@interface AllFirmwaresTableViewController ()
-{
+@interface MTAllFirmwaresTableViewController () {
     NSMutableDictionary *jsonArray;
     NSMutableArray *deviceNames;
 }
 
 @end
 
-@implementation AllFirmwaresTableViewController
+@implementation MTAllFirmwaresTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
+- (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
+
     [super viewDidLoad];
-    
+
     deviceNames = [[NSMutableArray alloc] init];
     jsonArray = [[NSMutableDictionary alloc] init];
     
-    NSError *err;
+    NSError *err = NULL;
     jsonArray = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://api.ineal.me/tss/all"]] options:0 error:&err];
     if (err == nil) {
         [self.tableView reloadData];
@@ -43,12 +32,6 @@
         }
     }
     [self.tableView reloadData];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -86,19 +69,19 @@
     
     switch (section) {
         case 0:
-            return [NSString stringWithFormat:@"%d Devices being signed",[deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPhone).*'"]].count];
+            return [NSString stringWithFormat:@"%lu Devices being signed",(unsigned long)[deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPhone).*'"]].count];
             break;
             
         case 1:
-            return [NSString stringWithFormat:@"%d Devices being signed",[deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPad).*'"]].count];
+            return [NSString stringWithFormat:@"%lu Devices being signed",(unsigned long)[deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPad).*'"]].count];
             break;
             
         case 2:
-            return [NSString stringWithFormat:@"%d Devices being signed",[deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPod).*'"]].count];
+            return [NSString stringWithFormat:@"%lu Devices being signed",(unsigned long)[deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPod).*'"]].count];
             break;
             
         case 3:
-            return [NSString stringWithFormat:@"%d Devices being signed",[deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(AppleTV).*'"]].count];
+            return [NSString stringWithFormat:@"%lu Devices being signed",(unsigned long)[deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(AppleTV).*'"]].count];
             break;
             
         default:
@@ -134,10 +117,13 @@
     return 0;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DeviceInformationCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DeviceInformationCell"];
+
+    if (cell == nil) {
+    	cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"DeviceInformationCell"];
+    }
     
     switch (indexPath.section) {
         case 0: {
@@ -182,3 +168,4 @@
 }
 
 @end
+
