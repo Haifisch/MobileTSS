@@ -31,9 +31,19 @@
    return [name isEqualToString:[NSString stringWithFormat:@"%@",MGCopyAnswer(kMGProductType)]];
 }
 
+-(NSArray *)arrayFilters {
+
+	return [NSArray arrayWithObjects:
+    	[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPhone).*'"],
+    	[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPad).*'"],
+    	[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPod).*'"],
+    	[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(AppleTV).*'"],
+    	nil]
+}
+
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 4;
 }
 
@@ -63,55 +73,11 @@
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    
-    switch (section) {
-        case 0:
-            return [NSString stringWithFormat:@"%lu Firmwares being signed",(unsigned long)[deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPhone).*'"]].count];
-            break;
-            
-        case 1:
-            return [NSString stringWithFormat:@"%lu Firmwares being signed",(unsigned long)[deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPad).*'"]].count];
-            break;
-            
-        case 2:
-            return [NSString stringWithFormat:@"%lu Firmwares being signed",(unsigned long)[deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPod).*'"]].count];
-            break;
-            
-        case 3:
-            return [NSString stringWithFormat:@"%lu Firmwares being signed",(unsigned long)[deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(AppleTV).*'"]].count];
-            break;
-            
-        default:
-            return @"";
-            break;
-    }
-
+    return [NSString stringWithFormat:@"%lu Firmwares being signed",(unsigned long)[deviceNames filteredArrayUsingPredicate:[self arrayFilters][section]].count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    switch (section) {
-        case 0:
-            return [deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPhone).*'"]].count;
-            break;
-            
-        case 1:
-            return [deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPad).*'"]].count;
-            break;
-            
-        case 2:
-            return [deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPod).*'"]].count;
-            break;
-            
-        case 3:
-            return [deviceNames filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(AppleTV).*'"]].count;
-            break;
-            
-        default:
-            return 0;
-            break;
-    }
-    return 0;
+	return [deviceNames filteredArrayUsingPredicate:[self arrayFilters][section]].count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -122,14 +88,7 @@
     	cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"DeviceInformationCell"];
     }
 
-    NSArray *predicates = [NSArray arrayWithObjects:
-    	[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPhone).*'"],
-    	[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPad).*'"],
-    	[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPod).*'"],
-    	[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(AppleTV).*'"],
-    	nil];
-
-	NSArray *devices = [deviceNames filteredArrayUsingPredicate:predicates[indexPath.section]];
+	NSArray *devices = [deviceNames filteredArrayUsingPredicate:[self arrayFilters][indexPath.section]];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",devices[indexPath.row],jsonArray[devices[indexPath.row]][@"board"]];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%@) is being signed",jsonArray[devices[indexPath.row]][@"firmwares"][0][@"version"],jsonArray[devices[indexPath.row]][@"firmwares"][0][@"build"]];
     cell.textLabel.textColor = [self isCurrentDevice:devices[indexPath.row]] ? [UIColor greenColor] : [UIColor blackColor];
