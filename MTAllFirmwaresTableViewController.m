@@ -19,7 +19,6 @@
     NSError *err = NULL;
     jsonArray = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://api.ineal.me/tss/all"]] options:0 error:&err];
     if (err == nil) {
-        [self.tableView reloadData];
         for (NSString *currentString in jsonArray) {
             [deviceNames addObject:currentString];
         }
@@ -33,8 +32,7 @@
 
 -(NSArray *)arrayFilters {
 
-	return [NSArray arrayWithObjects:
-    	[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPhone).*'"],
+	return @[[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPhone).*'"],
     	[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPad).*'"],
     	[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(iPod).*'"],
     	[NSPredicate predicateWithFormat:@"SELF MATCHES '.*(AppleTV).*'"],
@@ -48,28 +46,7 @@
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    
-    switch (section) {
-        case 0:
-            return @"iPhone";
-            break;
-            
-        case 1:
-            return @"iPad";
-            break;
-            
-        case 2:
-            return @"iPod";
-            break;
-            
-        case 3:
-            return @"Apple TV";
-            break;
-            
-        default:
-            return @"Others";
-            break;
-    }
+    return @[@"iPhone",@"iPad",@"iPod",@"Apple TV"][section];
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
