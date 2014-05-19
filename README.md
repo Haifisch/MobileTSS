@@ -3,14 +3,13 @@ MobileTSS
 
 Mobile TSS utility; Search blobs by ECID, List all firmwares being signed, List device blobs for current device
 
-NOTE: This doesn't do much (if anything) yet. Its in EARLY DEVELOPMENT
+Images
+======
 
-TODO
-====
-- Get (current) device ECID
-- ~~Get the lookup feature to communicate with Cydia/iFaith TSS servers~~ 
-- Get the "This Device" feature to communicate with Cydia/iFaith TSS servers
-- ~~Implement search functionality~~
-- ~~Fetch and list all current signed firmwares~~
+![All Signed Firmwares](http://i.imgur.com/naipKUd.png)
 
-Probably much more to be done.
+![Only your Device](http://i.imgur.com/EGoZvSV.png)
+
+![Search for Blobs by ECID](http://i.imgur.com/o7BkzYp.png)
+
+More to be added
