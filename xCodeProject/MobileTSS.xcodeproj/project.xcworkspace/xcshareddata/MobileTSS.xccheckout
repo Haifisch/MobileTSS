@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>69866C59-ED66-40A0-A2BB-D64476D5F36E</string>
+	<string>D5DA8A22-D434-4124-84AE-D5968FA3B902</string>
 	<key>IDESourceControlProjectName</key>
 	<string>MobileTSS</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>E20790AF-AF65-406B-8647-0C4DD2A4AD40</key>
-		<string>https://github.com/sharedRoutine/MobileTSS.git</string>
+		<key>5B9A5247-0441-422A-AE8E-ED304E84E091</key>
+		<string>https://github.com/Haifisch/MobileTSS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>xCodeProject/MobileTSS.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>E20790AF-AF65-406B-8647-0C4DD2A4AD40</key>
+		<key>5B9A5247-0441-422A-AE8E-ED304E84E091</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/sharedRoutine/MobileTSS.git</string>
+	<string>https://github.com/Haifisch/MobileTSS.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>E20790AF-AF65-406B-8647-0C4DD2A4AD40</string>
+	<string>5B9A5247-0441-422A-AE8E-ED304E84E091</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>E20790AF-AF65-406B-8647-0C4DD2A4AD40</string>
+			<string>5B9A5247-0441-422A-AE8E-ED304E84E091</string>
 			<key>IDESourceControlWCCName</key>
 			<string>MobileTSS</string>
 		</dict>

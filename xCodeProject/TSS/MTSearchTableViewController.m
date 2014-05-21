@@ -20,7 +20,7 @@
 
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 0)];
     [self.searchBar sizeToFit];
-    [[self.searchBar valueForKey:@"_searchField"] setPlaceholder:@"Search for SHSH Blobs by ECID"];
+    [self.searchBar setPlaceholder:@"Search for SHSH Blobs by ECID"];
     ((UITextField*)[self.searchBar valueForKey:@"_searchField"]).clearButtonMode = UITextFieldViewModeWhileEditing;
     self.tableView.tableHeaderView = self.searchBar;
     [self.searchBar setDelegate:self];
