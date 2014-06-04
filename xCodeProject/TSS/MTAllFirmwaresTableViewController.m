@@ -15,22 +15,50 @@
 
     deviceNames = [[NSMutableArray alloc] init];
     jsonArray = [[NSMutableDictionary alloc] init];
-    
-    NSError *err = NULL;
-    jsonArray = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://api.ineal.me/tss/all"]] options:0 error:&err];
-    if (err == nil) {
-        [self.tableView reloadData];
-        for (NSString *currentString in jsonArray) {
-            [deviceNames addObject:currentString];
+    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Public Firmwares",@"Beta firmwares", nil]];
+    [segmentedControl setSelectedSegmentIndex:0];
+    [segmentedControl addTarget:self action:@selector(segmentChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.navigationItem setTitleView:segmentedControl];
+    [self reloadDataWithBeta:NO];
+}
+-(void)reloadDataWithBeta:(BOOL)beta{
+    [jsonArray removeAllObjects];
+    [deviceNames removeAllObjects];
+    if (beta){
+        NSError *err = NULL;
+        jsonArray = [[NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://api.ineal.me/tss/beta/all"]] options:0 error:&err] mutableCopy];
+        if (err == nil) {
+            [self.tableView reloadData];
+            for (NSString *currentString in jsonArray) {
+                [deviceNames addObject:currentString];
+            }
+        }
+    }else {
+        NSError *err = NULL;
+        jsonArray = [[NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://api.ineal.me/tss/all"]] options:0 error:&err] mutableCopy];
+        if (err == nil) {
+            [self.tableView reloadData];
+            for (NSString *currentString in jsonArray) {
+                [deviceNames addObject:currentString];
+            }
         }
     }
+    
     [self.tableView reloadData];
 }
 
 -(BOOL)isCurrentDevice:(NSString *)name {
    return [name isEqualToString:[NSString stringWithFormat:@"%@",MGCopyAnswer(kMGProductType)]];
 }
-
+-(IBAction)segmentChanged:(id)sender {
+    UISegmentedControl *seg = (UISegmentedControl *)sender;
+    NSLog(@"%ld", (long)seg.selectedSegmentIndex);
+    if (seg.selectedSegmentIndex == 1) {
+        [self reloadDataWithBeta:YES];
+    }else if (seg.selectedSegmentIndex == 0){
+        [self reloadDataWithBeta:NO];
+    }
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

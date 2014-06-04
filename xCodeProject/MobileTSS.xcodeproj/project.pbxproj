@@ -14,7 +14,6 @@
 		B9BE420B1920188F00A2FD15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BE420A1920188F00A2FD15 /* UIKit.framework */; };
 		B9BE42111920188F00A2FD15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B9BE420F1920188F00A2FD15 /* InfoPlist.strings */; };
 		B9BE42131920188F00A2FD15 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BE42121920188F00A2FD15 /* main.m */; };
-		B9BE421A1920188F00A2FD15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9BE42181920188F00A2FD15 /* Main.storyboard */; };
 		B9BE421F1920188F00A2FD15 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9BE421E1920188F00A2FD15 /* Images.xcassets */; };
 		B9BE42261920188F00A2FD15 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BE42251920188F00A2FD15 /* XCTest.framework */; };
 		B9BE42271920188F00A2FD15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BE42061920188F00A2FD15 /* Foundation.framework */; };
@@ -53,7 +52,6 @@
 		B9BE42101920188F00A2FD15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B9BE42121920188F00A2FD15 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B9BE42141920188F00A2FD15 /* TSS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TSS-Prefix.pch"; sourceTree = "<group>"; };
-		B9BE42191920188F00A2FD15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B9BE421E1920188F00A2FD15 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B9BE42241920188F00A2FD15 /* MobileTSSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileTSSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9BE42251920188F00A2FD15 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -143,7 +141,6 @@
 			children = (
 				B9C1C1701928983B0085B25E /* ArtworkRound.png */,
 				B91AD9C219244E6A00273B82 /* MobileGestalt.h */,
-				B9BE42181920188F00A2FD15 /* Main.storyboard */,
 				DE2562A619292CC9008E9541 /* MTAppDelegate.h */,
 				DE2562A719292CC9008E9541 /* MTAppDelegate.m */,
 				DE2562A419292CC9008E9541 /* MTAllFirmwaresTableViewController.h */,
@@ -276,7 +273,6 @@
 				B9BE424A192021F600A2FD15 /* NoResultsView.xib in Resources */,
 				B9BE421F1920188F00A2FD15 /* Images.xcassets in Resources */,
 				B9BE42111920188F00A2FD15 /* InfoPlist.strings in Resources */,
-				B9BE421A1920188F00A2FD15 /* Main.storyboard in Resources */,
 				B90394E919285E60009DCC9C /* SHSHAvailable.xib in Resources */,
 				B9C1C1711928983B0085B25E /* ArtworkRound.png in Resources */,
 			);
@@ -330,14 +326,6 @@
 				B9BE42101920188F00A2FD15 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		B9BE42181920188F00A2FD15 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B9BE42191920188F00A2FD15 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		B9BE422E1920188F00A2FD15 /* InfoPlist.strings */ = {
