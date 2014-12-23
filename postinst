@@ -1,5 +1,0 @@
-#!/bin/bash
-echo "MobileTSS by Haifisch and sharedRoutine"
-chmod 775 /Applications/MobileTSS.app/MobileTSS
-ldid -S /Applications/MobileTSS.app/MobileTSS
-echo "Signed and Set Permissions!"

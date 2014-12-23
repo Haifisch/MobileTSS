@@ -1,0 +1,9 @@
+Package: ninja.haifisch.MobileTSS
+Name: MobileTSS
+Depends: 
+Version: 0.2
+Architecture: iphoneos-arm
+Description: MobileTSS is a small lightweight application that helps you find out what SHSH blobs you have saved, and helps you search for other SHSH blobs by ECID. This tool is meant to be used by repair professionals that plan on selling their devices, buyers that jailbreak like to know what SHSH blobs they have available.
+Maintainer: Haifisch
+Author: Haifisch & sharedRoutine
+Section: Utilities
